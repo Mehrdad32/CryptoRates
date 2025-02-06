@@ -1,0 +1,71 @@
+﻿@model List<CryptoRate>
+
+<h2>Cryptocurrency Exchange Rates</h2>
+
+<form method="post" asp-action="GetRates" onsubmit="saveSearchHistory()">
+    <input type="text" id="cryptoCode" name="cryptoCode" placeholder="Enter Crypto Code" list="search-history" autocomplete="off" />
+    <datalist id="search-history"></datalist>
+    <button type="submit">Get Rates</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red;">@ViewBag.ErrorMessage</p>
+    @if (ViewBag.Suggestions != null && ((List<string>)ViewBag.Suggestions).Any())
+    {
+        <ul>
+            @foreach (var suggestion in (List<string>)ViewBag.Suggestions)
+            {
+                <li>@suggestion</li>
+            }
+        </ul>
+    }
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3>@ViewBag.CryptoCode Currency Prices</h3>
+    <table>
+        <tr>
+            <th>Currency</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var rate in Model)
+        {
+            <tr>
+                <td>@rate.Currency</td>
+                <td>@rate.Price</td>
+            </tr>
+        }
+    </table>
+}
+else if (ViewBag.ErrorMessage == null)
+{
+    <p>No data available. Please enter a cryptocurrency code.</p>
+}
+
+<script>
+    function saveSearchHistory() {
+        const input = document.getElementById('cryptoCode').value.trim();
+        if (!input) return;
+
+        const history = JSON.parse(localStorage.getItem('cryptoSearchHistory')) || [];
+        if (!history.includes(input)) {
+            history.push(input);
+            localStorage.setItem('cryptoSearchHistory', JSON.stringify(history));
+        }
+    }
+
+    function loadSearchHistory() {
+        const history = JSON.parse(localStorage.getItem('cryptoSearchHistory')) || [];
+        const dataList = document.getElementById('search-history');
+        dataList.innerHTML = '';
+        history.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            dataList.appendChild(option);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSearchHistory);
+</script>
