@@ -104,7 +104,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ## 📞 Contact
-📧 **Mehrdad Mohajer** - [mohajer.mhr@example.com](mailto:mohajer.mhr@gmail.com)  
+📧 **Mehrdad Mohajer** - [mohajer.mhr@gmail.com](mailto:mohajer.mhr@gmail.com)  
 🔗 **GitHub** - [github.com/Mehrdad32](https://github.com/Mehrdad32)  
 🔗 **LinkedIn** - [linkedin.com/in/Mehrdad32](https://linkedin.com/in/Mehrdad32)
 
