@@ -2,7 +2,7 @@
 
 ## 1️⃣ How long did you spend on the coding assignment?
 > **Answer:**  
-I spent about 4 hours on this task. If I had more time, I would improve the front-end by adding features like live autocomplete with suggestions, authentication and authorization for the backend, and database integration to store request details and manage currencies.
+I spent about 6 hours on this task. If I had more time, I would improve the front-end by adding features like live autocomplete with suggestions, authentication and authorization for the backend, and database integration to store request details and manage currencies.
 
 ## 2️⃣ What was the most useful feature that was added to the latest version of your language of choice?
 > **Answer:**  
